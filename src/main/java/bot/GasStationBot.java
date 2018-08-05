@@ -6,11 +6,17 @@ import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
-public class GasStationBot extends TelegramLongPollingBot {
+public final class GasStationBot extends TelegramLongPollingBot {
 
 
     public static final String BOT_NAME = "TankstellenBot";
-    public static final String BOT_TOKEN = "XXX";
+
+    private final String botToken;
+
+    public GasStationBot(final String botToken)
+    {
+        this.botToken = botToken;
+    }
 
     @Override
     public void onUpdateReceived(Update update) {
@@ -33,7 +39,7 @@ public class GasStationBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotToken() {
-        return BOT_TOKEN;
+        return botToken;
     }
 }
 
